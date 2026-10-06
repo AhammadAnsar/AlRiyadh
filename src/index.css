@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-arabic {
+    font-family: 'Almarai', 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .font-english-doc {
+    font-family: Arial, Helvetica, -apple-system, sans-serif;
+  }
+}
+
+/* Print optimizations for exact certificate reproduction */
+@media print {
+  @page {
+    size: auto;
+    margin: 12mm 15mm;
+  }
+
+  html, body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .cert-card-container {
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+  }
+
+  .public-verify-container {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+}

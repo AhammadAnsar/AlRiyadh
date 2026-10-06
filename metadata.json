@@ -1,0 +1,6 @@
+{
+  "name": "Riyadh Health Certificate Generator & Verification",
+  "description": "Official Riyadh Region Municipality health certificate generator with bilingual Arabic/English specifications, authentic layout, and QR verification portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
