@@ -177,7 +177,12 @@ export default function App() {
   // Render Branch 2: Admin Login
   // -------------------------------------------------------------
   if (!isAuthenticated) {
-    return <AdminLogin onLoginSuccess={handleLoginSuccess} />;
+    return (
+      <AdminLogin
+        onLoginSuccess={handleLoginSuccess}
+        onViewPublicDemo={() => handlePreviewPublic(certificates[0])}
+      />
+    );
   }
 
   // -------------------------------------------------------------

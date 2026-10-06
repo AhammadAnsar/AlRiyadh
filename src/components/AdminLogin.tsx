@@ -4,9 +4,10 @@ import { RiyadhEmblem } from './RiyadhEmblem';
 
 interface AdminLoginProps {
   onLoginSuccess: () => void;
+  onViewPublicDemo?: () => void;
 }
 
-export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
+export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onViewPublicDemo }) => {
   const [username, setUsername] = useState('admin');
   const [password, setPassword] = useState('123456');
   const [error, setError] = useState('');
@@ -120,6 +121,18 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
+
+        {onViewPublicDemo && (
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={onViewPublicDemo}
+              className="w-full py-2 px-3 bg-neutral-700/60 hover:bg-neutral-700 border border-neutral-600/60 text-emerald-300 text-xs font-medium rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>View Public Verified Certificate (Direct Zero-UI Mode)</span>
+            </button>
+          </div>
+        )}
 
         <div className="mt-6 pt-4 border-t border-neutral-800 text-center">
           <div className="flex items-center justify-center gap-1.5 text-[11px] text-neutral-500">

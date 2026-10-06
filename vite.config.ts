@@ -4,11 +4,15 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  base: '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('.', import.meta.url)),
     },
+  },
+  build: {
+    outDir: 'dist',
   },
   server: {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.

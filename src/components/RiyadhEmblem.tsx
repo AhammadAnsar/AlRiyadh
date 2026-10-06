@@ -11,6 +11,10 @@ export const RiyadhEmblem: React.FC<RiyadhEmblemProps> = ({
   size = 82,
   className = '',
 }) => {
+  const uniqueId = React.useId().replace(/:/g, '');
+  const topClipId = `topHalf-${uniqueId}`;
+  const bottomClipId = `bottomHalf-${uniqueId}`;
+
   if (customLogoUrl) {
     return (
       <div
@@ -40,11 +44,11 @@ export const RiyadhEmblem: React.FC<RiyadhEmblemProps> = ({
       >
         <defs>
           {/* Top half clip */}
-          <clipPath id="topHalf">
+          <clipPath id={topClipId}>
             <rect x="0" y="0" width="100" height="52" />
           </clipPath>
           {/* Bottom half clip */}
-          <clipPath id="bottomHalf">
+          <clipPath id={bottomClipId}>
             <rect x="0" y="52" width="100" height="48" />
           </clipPath>
         </defs>
@@ -53,7 +57,7 @@ export const RiyadhEmblem: React.FC<RiyadhEmblemProps> = ({
         <circle cx="50" cy="50" r="49" fill="#005a32" />
 
         {/* Top Half: Light Sky Blue */}
-        <g clipPath="url(#topHalf)">
+        <g clipPath={`url(#${topClipId})`}>
           <circle cx="50" cy="50" r="49" fill="#589db8" />
 
           {/* White Traditional Masmak Fortress / Castle Vector */}
@@ -137,7 +141,7 @@ export const RiyadhEmblem: React.FC<RiyadhEmblemProps> = ({
         />
 
         {/* Bottom Half: Dark Green with Authentic Calligraphy "الرياض" */}
-        <g clipPath="url(#bottomHalf)">
+        <g clipPath={`url(#${bottomClipId})`}>
           <circle cx="50" cy="50" r="49" fill="#005a32" />
 
           {/* Decorative curved golden arch under text */}
